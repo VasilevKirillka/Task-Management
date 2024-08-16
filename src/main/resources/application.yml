@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task
+    username: task
+    password: task
+    hikari:
+      schema: task
+      connection-init-sql: CREATE SCHEMA IF NOT EXISTS task
+      connection-timeout: 10000
+    driverClassName: org.postgresql.Driver
+
+jwt:
+  token:
+    secret: QWGoEVOgwBZZ/gYk9n9X/b3pU4Z5hI2UbP0apzZGWi3vs+t2PxHIO8kJCEHU9YiP0fM7sSXc4e+fmQ6+Zon/cQ==
+    expired: 6000000
+
+springdoc:
+  swagger-ui:
+    path: /sw-ui
+  api-docs:
+    path: /sw
